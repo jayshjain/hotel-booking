@@ -1,21 +1,23 @@
 package com.booking.room.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Hotel {
-	 static Integer floors;
-     static Integer roomsPerFloor;
-     
-     private Hotel() {}
-	
-	static {
-		floors=4;
-		roomsPerFloor=5;
-	}	
-	
-	public static Integer getFloors() {
-		return floors;
+	private Integer floors;
+	private Integer roomsPerFloor;
+
+	public Hotel() {
+		this.floors = 4;
+		this.roomsPerFloor = 5;
 	}
-	
-	public static Integer getRoomsPerFloor() {
-		return roomsPerFloor;
+
+	public int getFloors() {
+		return this.floors;
 	}
+
+	public int getRoomsPerFloor() {
+		return this.roomsPerFloor;
+	}
+
 }
