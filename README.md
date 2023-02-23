@@ -1,4 +1,4 @@
-# hotel-booking
+# Hotel Booking
 This is Spring boot project build using Gradle-groovy and Java 19. The objective of the project is to allow room allotments in a banquet hotel with mainting the room life cycle, i.e. available->occupied->vacant->available or available->occupied->vacant->repair->available. 
 
 
@@ -18,3 +18,5 @@ Steps to launch the application:
 | POST        | http://localhost:9096/bookings/makeRoom/{roomNumber}        | This API is used to make the room after checkout.                         |
 | POST        | http://localhost:9096/bookings/makeForRepair/{roomNumber}   | This API is used to make the room for repair after the checkout.          |
 | POST        | http://localhost:9096/bookings/repairRoom/{roomNumber}      | This API is used to repair the room if its marked for repair.             |
+
+5. The Junits are available in src/test/java folder. 
