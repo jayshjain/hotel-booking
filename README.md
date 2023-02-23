@@ -1,5 +1,5 @@
 # Hotel Booking
-This is Spring boot project build using Gradle-groovy and Java 19. The objective of the project is to allow room allotments in a banquet hotel with mainting the room life cycle, i.e. available->occupied->vacant->available or available->occupied->vacant->repair->available. 
+This is Spring boot project build using Gradle-groovy and Java 19. The objective of the project is to allow room allotments in a banquet hotel with mainting the room life cycle, i.e. available->occupied->vacant->available or available->occupied->vacant->repair->vacant->available. 
 
 
 Steps to launch the application: 
