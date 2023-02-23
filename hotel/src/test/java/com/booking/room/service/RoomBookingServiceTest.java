@@ -132,4 +132,37 @@ public class RoomBookingServiceTest {
 		Boolean result = roomBookingService.repairRoom(roomNum);
 		assertFalse(result);
 	}
+	
+	/*
+	 * available->occupied->vacant->available 
+	 */
+	@Test
+	public void testHappyPathOne() {
+		String roomNum = roomBookingService.bookNextAvailableRoom();
+		Boolean checkOutResult = roomBookingService.checkOut(roomNum);
+		assertTrue(checkOutResult);
+		Boolean markRoomResult = roomBookingService.makeRoom(roomNum);
+		assertTrue(markRoomResult);
+		String nextAvailableRoom = roomBookingService.getAllAvailableRooms().stream().findFirst().get();
+		assertEquals(roomNum,nextAvailableRoom);
+	}
+	
+	/*
+	 * available->occupied->vacant->repair->vacant->available
+	 */
+	@Test
+	public void testHappyPathTwo() {
+		String roomNum = roomBookingService.bookNextAvailableRoom();
+		Boolean checkOutResult = roomBookingService.checkOut(roomNum);
+		assertTrue(checkOutResult);
+		Boolean markRepairResult = roomBookingService.makeForRepair(roomNum);
+		assertTrue(markRepairResult);
+		Boolean repairRoomResult = roomBookingService.repairRoom(roomNum);
+		assertTrue(repairRoomResult);
+		Boolean markRoomResult = roomBookingService.makeRoom(roomNum);
+		assertTrue(markRoomResult);
+		String nextAvailableRoom = roomBookingService.getAllAvailableRooms().stream().findFirst().get();
+		assertEquals(roomNum,nextAvailableRoom);
+	}
+	
 }
