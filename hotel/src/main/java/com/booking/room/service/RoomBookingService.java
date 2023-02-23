@@ -10,14 +10,12 @@ import org.springframework.stereotype.Service;
 import com.booking.room.cache.HotelRoomMap;
 import com.booking.room.model.RoomStatus;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Service
 @NoArgsConstructor
-@AllArgsConstructor
 @Setter
 @Getter
 public class RoomBookingService implements BookingService {

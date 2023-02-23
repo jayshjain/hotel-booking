@@ -17,34 +17,53 @@ public class BookingController {
 	private RoomBookingService bookingService;
 
 	@PostMapping(BookingApiPaths.BOOK_ROOM)
-	public ResponseEntity<Object> bookNextAvailableRoom(){
-		return ResponseEntity.ok(bookingService.bookNextAvailableRoom());
+	public ResponseEntity<Object> bookNextAvailableRoom() {
+		String response = bookingService.bookNextAvailableRoom();
+		if (response != null)
+			return ResponseEntity.ok(response);
+		else
+			return ResponseEntity.badRequest().build();
 	}
-	
+
 	@PostMapping(BookingApiPaths.CHECKOUT_ROOM)
-	public ResponseEntity<Object> checkOut(@PathVariable String roomNumber){
-		return ResponseEntity.ok(bookingService.checkOut(roomNumber));
+	public ResponseEntity<Object> checkOut(@PathVariable String roomNumber) {
+		Boolean response = bookingService.checkOut(roomNumber);
+		if (response)
+			return ResponseEntity.ok(response);
+		else
+			return ResponseEntity.badRequest().build();
 	}
-	
+
 	@PostMapping(BookingApiPaths.MAKE_ROOM)
-	public ResponseEntity<Object> makeRoom(@PathVariable String roomNumber){
-		return ResponseEntity.ok(bookingService.makeRoom(roomNumber));
+	public ResponseEntity<Object> makeRoom(@PathVariable String roomNumber) {
+		Boolean response = bookingService.makeRoom(roomNumber);
+		if (response)
+			return ResponseEntity.ok(response);
+		else
+			return ResponseEntity.badRequest().build();
 	}
-	
+
 	@PostMapping(BookingApiPaths.MAKE_FOR_REPAIR)
-	public ResponseEntity<Object> makeForRepair(@PathVariable String roomNumber){
-		return ResponseEntity.ok(bookingService.makeForRepair(roomNumber));
+	public ResponseEntity<Object> makeForRepair(@PathVariable String roomNumber) {
+		Boolean response = bookingService.makeForRepair(roomNumber);
+		if (response)
+			return ResponseEntity.ok(response);
+		else
+			return ResponseEntity.badRequest().build();
 	}
-	
+
 	@PostMapping(BookingApiPaths.REPAIR_ROOM)
-	public ResponseEntity<Object> repairRoom(@PathVariable String roomNumber){
-		return ResponseEntity.ok(bookingService.repairRoom(roomNumber));
+	public ResponseEntity<Object> repairRoom(@PathVariable String roomNumber) {
+		Boolean response = bookingService.repairRoom(roomNumber);
+		if (response)
+			return ResponseEntity.ok(response);
+		else
+			return ResponseEntity.badRequest().build();
 	}
-	
+
 	@GetMapping(BookingApiPaths.GET_ROOMS)
-	public ResponseEntity<Object> getAllAvailableRooms(){
+	public ResponseEntity<Object> getAllAvailableRooms() {
 		return ResponseEntity.ok(bookingService.getAllAvailableRooms());
 	}
-	
-	
+
 }
