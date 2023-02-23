@@ -36,7 +36,7 @@ public class RoomBookingServiceTest {
 	public void getAllAvailableRoomsTestNegative() {
 		List<String> result = roomBookingService.getAllAvailableRooms();
 
-		for (String room : result) {
+		for (int i = 0; i < result.size(); i++) {
 			roomBookingService.bookNextAvailableRoom();
 		}
 
@@ -54,7 +54,7 @@ public class RoomBookingServiceTest {
 	public void bookNextAvailableRoomTestNegative() {
 		List<String> result = roomBookingService.getAllAvailableRooms();
 
-		for (String room : result) {
+		for (int i = 0; i < result.size(); i++) {
 			roomBookingService.bookNextAvailableRoom();
 		}
 		String response = roomBookingService.bookNextAvailableRoom();
